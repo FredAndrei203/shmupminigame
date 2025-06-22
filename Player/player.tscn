@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxfxreysyekjn"]
+
+[ext_resource type="PackedScene" uid="uid://cscfvrd2y3rxs" path="res://BaseScenes/entity.tscn" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://p7w8rj35ht" path="res://player.gd" id="2_4ntmi"]
+[ext_resource type="SpriteFrames" uid="uid://dc5vdsrpni72t" path="res://Player/Reimu.tres" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://4mbejlimb6xr" path="res://Player/player_sprite.gd" id="4_k53q1"]
+[ext_resource type="PackedScene" uid="uid://cs67qsyl0n2a0" path="res://Weapons/rapid_fire_weapon.tscn" id="5_k53q1"]
+[ext_resource type="Texture2D" uid="uid://bjjgdi5101t2f" path="res://Assets/PC Computer - Touhou Chireiden Subterranean Animism - Bullets.png" id="6_vtle1"]
+[ext_resource type="Script" uid="uid://c5vepvjek8wbt" path="res://Player/hitbox_sprite.gd" id="7_od3ui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k53q1"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtle1"]
+resource_local_to_scene = true
+radius = 3.0
+
+[node name="Player" instance=ExtResource("1_l8h54")]
+collision_mask = 0
+script = ExtResource("2_4ntmi")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_k53q1")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("3_btcbx")
+animation = &"NormalAnimation"
+script = ExtResource("4_k53q1")
+
+[node name="RapidFireWeapon" parent="." index="2" instance=ExtResource("5_k53q1")]
+
+[node name="HitboxSprite" type="Sprite2D" parent="." index="3"]
+visible = false
+texture = ExtResource("6_vtle1")
+region_enabled = true
+region_rect = Rect2(276, 25, 64, 60)
+script = ExtResource("7_od3ui")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_vtle1")
+
+[connection signal="lateral_velocity_changed" from="." to="." method="_on_lateral_velocity_changed"]

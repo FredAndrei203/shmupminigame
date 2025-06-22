@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg5o0c5fmce6f"]
+
+[ext_resource type="Script" uid="uid://cwcsn5omyccah" path="res://weapon_base.gd" id="1_n75jm"]
+
+[node name="WeaponBase" type="Node2D"]
+script = ExtResource("1_n75jm")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

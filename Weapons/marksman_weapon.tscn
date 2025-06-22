@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctws2164jwcwx"]
+
+[ext_resource type="PackedScene" uid="uid://dg5o0c5fmce6f" path="res://BaseScenes/weapon_base.tscn" id="1_u723t"]
+[ext_resource type="Script" uid="uid://c1t1fe4pyvlbd" path="res://Weapons/marksman_weapon.gd" id="2_nd2h5"]
+
+[node name="MarksmanWeapon" instance=ExtResource("1_u723t")]
+script = ExtResource("2_nd2h5")

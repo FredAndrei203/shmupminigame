@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs67qsyl0n2a0"]
+
+[ext_resource type="PackedScene" uid="uid://dg5o0c5fmce6f" path="res://BaseScenes/weapon_base.tscn" id="1_enoa5"]
+[ext_resource type="Script" uid="uid://ccdkomj8ig7yn" path="res://Weapons/rapid_fire_weapon.gd" id="2_bnvxo"]
+
+[node name="RapidFireWeapon" instance=ExtResource("1_enoa5")]
+script = ExtResource("2_bnvxo")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.05
+
+[node name="BulletMuzzle1" type="Marker2D" parent="." index="1"]
+position = Vector2(10, -30)
+
+[node name="BulletMuzzle2" type="Marker2D" parent="." index="2"]
+position = Vector2(-10, -30)

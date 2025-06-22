@@ -1,0 +1,138 @@
+[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://cxkblpds0qnjx"]
+
+[ext_resource type="Texture2D" uid="uid://be02fbt6ts1oa" path="res://Assets/PC Computer - Touhou Kaeizuka Phantasmagoria of Flower View - Enemies.png" id="1_2eejp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bb4u"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mccyp"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_847kr"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwj4t"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0veo"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sky1w"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdbel"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y68g7"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xv4"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j1h4"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvm2b"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqbot"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aeqw"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glw86"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48r4"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul6p1"]
+atlas = ExtResource("1_2eejp")
+region = Rect2(96, 64, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bb4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mccyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_847kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwj4t")
+}],
+"loop": false,
+"name": &"MovingLaterally",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0veo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sky1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdbel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y68g7")
+}],
+"loop": true,
+"name": &"NormalAnimation",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvm2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqbot")
+}],
+"loop": false,
+"name": &"NotMovingLaterallyAnymore",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aeqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glw86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f48r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul6p1")
+}],
+"loop": true,
+"name": &"StillMovingLaterally",
+"speed": 15.0
+}]

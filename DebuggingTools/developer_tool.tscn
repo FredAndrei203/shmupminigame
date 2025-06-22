@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dho83y762p5jk"]
+
+[ext_resource type="Script" uid="uid://cnr04sl5q3boy" path="res://DebuggingTools/developer_tool.gd" id="1_08hgy"]
+[ext_resource type="Script" uid="uid://k83gmlqoleqq" path="res://DebuggingTools/bullet_pool_stats.gd" id="2_idtwc"]
+
+[node name="DeveloperTool" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_08hgy")
+
+[node name="Stats" type="FlowContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="BulletPoolStats" type="VBoxContainer" parent="Stats"]
+layout_mode = 2
+script = ExtResource("2_idtwc")
+
+[node name="TotalInstances" type="Label" parent="Stats/BulletPoolStats"]
+layout_mode = 2
+text = "Total bullets in scene: "
+
+[node name="Pooled" type="Label" parent="Stats/BulletPoolStats"]
+layout_mode = 2
+text = "Pooled: "
+
+[node name="Unpooled" type="Label" parent="Stats/BulletPoolStats"]
+layout_mode = 2
+text = "Unpooled: "
+
+[node name="Discrepancy" type="Label" parent="Stats/BulletPoolStats"]
+layout_mode = 2
+text = "Discrepancy: "

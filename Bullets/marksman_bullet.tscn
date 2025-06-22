@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn6abjvdxdpxk"]
+
+[ext_resource type="PackedScene" uid="uid://drup2bwhio5ue" path="res://BaseScenes/bullet_base.tscn" id="1_epovi"]
+[ext_resource type="Script" uid="uid://cmalnenuhy4t1" path="res://Bullets/marksman_bullet.gd" id="2_enmy7"]
+[ext_resource type="SpriteFrames" uid="uid://dtkyy3u8hrekd" path="res://Bullets/BulletSpriteResources/MarksmanBulletSprite.tres" id="2_slg4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slg4p"]
+resource_local_to_scene = true
+size = Vector2(8, 8)
+
+[node name="MarksmanBullet" groups=["MarksmanBullet"] instance=ExtResource("1_epovi")]
+script = ExtResource("2_enmy7")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_slg4p")
+frame = 6
+frame_progress = 0.367894
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_slg4p")
+
+[editable path="HurtboxComponent"]

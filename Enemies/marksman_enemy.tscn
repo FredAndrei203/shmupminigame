@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://boslwgqbnx2u2"]
+
+[ext_resource type="PackedScene" uid="uid://b8yopd2yw36hr" path="res://BaseScenes/enemy_base.tscn" id="1_t5ct0"]
+[ext_resource type="SpriteFrames" uid="uid://cdbj7o371lmax" path="res://Enemies/marksman.tres" id="2_gir5p"]
+[ext_resource type="Script" uid="uid://c61l8cxvauue0" path="res://Enemies/marksman_enemy.gd" id="2_y55e8"]
+[ext_resource type="PackedScene" uid="uid://ctws2164jwcwx" path="res://Weapons/marksman_weapon.tscn" id="4_05mtw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y55e8"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y55e8"]
+
+[node name="MarksmanEnemy" groups=["Marksman"] instance=ExtResource("1_t5ct0")]
+script = ExtResource("2_y55e8")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_y55e8")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_gir5p")
+animation = &"NormalAnimation"
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_y55e8")
+
+[node name="PreparationTimer" parent="." index="4"]
+wait_time = 0.2
+
+[node name="MarksmanWeapon" parent="." index="5" instance=ExtResource("4_05mtw")]
+
+[connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]

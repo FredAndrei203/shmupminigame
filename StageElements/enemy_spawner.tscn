@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://db0v346xv1qix"]
+
+[ext_resource type="Script" uid="uid://8k1h5mk0afke" path="res://StageElements/enemy_spawner.gd" id="1_e5ud7"]
+
+[sub_resource type="Curve2D" id="Curve2D_3v37u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 324, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1154, 0, 0, 0, 0, 0, 1154, 324, 0, 0, 0, 0, 1154, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 324)
+}
+point_count = 7
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_e5ud7")
+
+[node name="SpawnAreas" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3v37u")
+
+[node name="SpawnPoint" type="PathFollow2D" parent="SpawnAreas"]
+position = Vector2(0, 324)
+rotates = false
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="NextWaveTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="NextWaveTimer" to="." method="_on_next_wave_timer_timeout"]

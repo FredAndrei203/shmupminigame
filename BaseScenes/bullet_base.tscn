@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://drup2bwhio5ue"]
+
+[ext_resource type="Script" uid="uid://c7qj24gp8dixj" path="res://BaseScenes/bullet_base.gd" id="1_x5bjt"]
+[ext_resource type="PackedScene" uid="uid://cvcivttydua41" path="res://Components/hurtbox_component.tscn" id="2_jyjmt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyjmt"]
+radius = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5bjt"]
+resource_local_to_scene = true
+
+[node name="BulletBase" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_x5bjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jyjmt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x5bjt")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("2_jyjmt")]

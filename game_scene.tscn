@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlyufwxer833x"]
+
+[ext_resource type="PackedScene" uid="uid://cxfxreysyekjn" path="res://Player/player.tscn" id="1_po0ka"]
+[ext_resource type="Script" uid="uid://1t7jxqdy5yls" path="res://game_scene.gd" id="1_v1wow"]
+[ext_resource type="PackedScene" uid="uid://c8u67yl8nvpkp" path="res://Player/player_controller.tscn" id="2_v1wow"]
+[ext_resource type="PackedScene" uid="uid://d3oalbiucw4lq" path="res://StageElements/enemy_destinations.tscn" id="4_mixcd"]
+[ext_resource type="PackedScene" uid="uid://db0v346xv1qix" path="res://StageElements/enemy_spawner.tscn" id="5_mj2jn"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_v1wow")
+
+[node name="Player" parent="." instance=ExtResource("1_po0ka")]
+position = Vector2(577, 486)
+
+[node name="PlayerController" parent="." instance=ExtResource("2_v1wow")]
+
+[node name="EnemyDestinations" parent="." instance=ExtResource("4_mixcd")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_mj2jn")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8u67yl8nvpkp"]
+
+[ext_resource type="Script" uid="uid://cx25komkg04lk" path="res://Player/player_controller.gd" id="1_biqn8"]
+
+[node name="PlayerController" type="Node2D"]
+script = ExtResource("1_biqn8")

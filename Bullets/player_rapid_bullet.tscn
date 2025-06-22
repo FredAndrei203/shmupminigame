@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cck8cu2st4ed6"]
+
+[ext_resource type="PackedScene" uid="uid://drup2bwhio5ue" path="res://BaseScenes/bullet_base.tscn" id="1_fklk4"]
+[ext_resource type="SpriteFrames" uid="uid://coy5fv6clajsf" path="res://Bullets/BulletSpriteResources/RapidBulletSprites.tres" id="3_xec86"]
+
+[sub_resource type="GDScript" id="GDScript_i4f1w"]
+script/source = "class_name PlayerRapidBullet
+extends BulletBase
+
+func _ready() -> void:
+	bullet_type = BulletPool.bullet_types.PLAYER_RAPID
+	bullet_speed = 1500
+	rotate(-PI/2)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xec86"]
+resource_local_to_scene = true
+size = Vector2(18, 14)
+
+[node name="PlayerRapidBullet" groups=["RapidFireBullet"] instance=ExtResource("1_fklk4")]
+script = SubResource("GDScript_i4f1w")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-22, 0)
+sprite_frames = ExtResource("3_xec86")
+animation = &"BulletSprite"
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_xec86")
+
+[editable path="HurtboxComponent"]

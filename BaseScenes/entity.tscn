@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cscfvrd2y3rxs"]
+
+[ext_resource type="Script" uid="uid://xkkfbb1ugu44" path="res://BaseScenes/entity.gd" id="1_3k01w"]
+[ext_resource type="Script" uid="uid://cjr64vm325bva" path="res://BaseScenes/entity_sprite_base.gd" id="2_udp1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2lw7"]
+resource_local_to_scene = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k01w"]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udp1c"]
+resource_local_to_scene = true
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_3k01w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l2lw7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3k01w")
+script = ExtResource("2_udp1c")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_udp1c")
+debug_color = Color(0, 0.636454, 0.404681, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

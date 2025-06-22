@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://wuip3fpgcl8a"]
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"MovingLaterally",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"NormalAnimation",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"NotMovingLaterallyAnymore",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"StillMovingLaterally",
+"speed": 15.0
+}]

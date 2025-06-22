@@ -1,0 +1,33 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://coy5fv6clajsf"]
+
+[ext_resource type="Texture2D" uid="uid://tjxgxqd0tnaj" path="res://Assets/PC Computer - Touhou Kikeijuu Wily Beast and Weakest Creature - Reimu Hakurei.png" id="1_bk32s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqxsf"]
+atlas = ExtResource("1_bk32s")
+region = Rect2(203, 154, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s6x0"]
+atlas = ExtResource("1_bk32s")
+region = Rect2(203, 170, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kcsy"]
+atlas = ExtResource("1_bk32s")
+region = Rect2(203, 186, 64, 16)
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqxsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s6x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kcsy")
+}],
+"loop": true,
+"name": &"BulletSprite",
+"speed": 15.0
+}]
