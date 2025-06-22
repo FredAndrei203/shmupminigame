@@ -3,18 +3,10 @@ extends CharacterBody2D
 
 #Composition pattern could have been used for the hurtbox
 #But bullets will only be the ones with hurtboxes so imma keep it simple
-@onready var hurtbox: Area2D = $HurtboxComponent
+@onready var hurtbox: HurtboxComponent = $HurtboxComponent
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var hurtbox_active: bool = true:
-	set(active):
-		hurtbox_active = active
-		if hurtbox_active:
-			hurtbox.monitoring = true
-			hurtbox.monitorable = true
-		else:
-			hurtbox.monitoring = true
-			hurtbox.monitorable = true
+var damage: float
 
 var animation_active: bool = true:
 	set(active):
@@ -46,4 +38,8 @@ func deactivate_if_outside_view():
 		viewport_rect.size.y + 2 * margin
 	)
 	if !expanded_viewport_rect.has_point(global_position):
-		BulletPool.return_bullet(self, bullet_type)
+		BulletPool.return_bullet(self)
+
+
+func _on_hurtbox_component_area_entered(area: Area2D) -> void:
+	BulletPool.return_bullet(self)

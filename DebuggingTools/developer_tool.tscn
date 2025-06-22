@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dho83y762p5jk"]
+[gd_scene load_steps=4 format=3 uid="uid://dho83y762p5jk"]
 
 [ext_resource type="Script" uid="uid://cnr04sl5q3boy" path="res://DebuggingTools/developer_tool.gd" id="1_08hgy"]
 [ext_resource type="Script" uid="uid://k83gmlqoleqq" path="res://DebuggingTools/bullet_pool_stats.gd" id="2_idtwc"]
+[ext_resource type="Script" uid="uid://c8yjchm01u6m0" path="res://DebuggingTools/enemy_pool_stats.gd" id="3_auhwa"]
 
 [node name="DeveloperTool" type="Control"]
 layout_mode = 3
@@ -32,5 +33,25 @@ layout_mode = 2
 text = "Unpooled: "
 
 [node name="Discrepancy" type="Label" parent="Stats/BulletPoolStats"]
+layout_mode = 2
+text = "Discrepancy: "
+
+[node name="EnemyPoolStats" type="VBoxContainer" parent="Stats"]
+layout_mode = 2
+script = ExtResource("3_auhwa")
+
+[node name="TotalInstances" type="Label" parent="Stats/EnemyPoolStats"]
+layout_mode = 2
+text = "Total enemies in scene: "
+
+[node name="Pooled" type="Label" parent="Stats/EnemyPoolStats"]
+layout_mode = 2
+text = "Pooled: "
+
+[node name="Unpooled" type="Label" parent="Stats/EnemyPoolStats"]
+layout_mode = 2
+text = "Unpooled: "
+
+[node name="Discrepancy" type="Label" parent="Stats/EnemyPoolStats"]
 layout_mode = 2
 text = "Discrepancy: "

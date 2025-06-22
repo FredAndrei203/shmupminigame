@@ -4,6 +4,9 @@ extends EnemyBase
 func _ready() -> void:
 	speed = 500
 	weapon = $MarksmanWeapon
+	enemy_type = EnemyPool.enemy_types.MARKSMAN
+	max_health = 3
+	health = max_health
 
 
 func _on_preparation_timer_timeout() -> void:

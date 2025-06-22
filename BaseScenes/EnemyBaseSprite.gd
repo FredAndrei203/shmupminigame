@@ -9,6 +9,7 @@ func play_move_left():
 	if animation_state == AnimationState.NORMAL:
 		flip_h = true
 		play("MovingLaterally")
+		next_is_flipped = true
 		animation_queue.append("StillMovingLaterally")
 	else:
 		play("NotMovingLaterallyAnymore")
@@ -23,6 +24,7 @@ func play_move_right():
 	if animation_state == AnimationState.NORMAL:
 		flip_h = false
 		play("MovingLaterally")
+		next_is_flipped = false
 		animation_queue.append("StillMovingLaterally")
 	else:
 		play("NotMovingLaterallyAnymore")

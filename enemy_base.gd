@@ -3,21 +3,17 @@ extends Entity
 
 signal commence_attack
 signal request_next_destination(enemy: EnemyBase)
+signal lateral_velocity_changed(new_velocity: int)
 
 @onready var hurtbox: HurtboxComponent = $HurtboxComponent
 @onready var preparation_timer: Timer = $PreparationTimer
-var hurtbox_active: bool = true:
-	set(active):
-		hurtbox_active = active
-		if hurtbox_active:
-			hurtbox.monitorable = true
-			hurtbox.monitoring = true
-		else:
-			hurtbox.monitorable = false
-			hurtbox.monitoring = false
 var destination: Vector2
 var is_attacking: bool = false
 var target: Player
+var enemy_type: EnemyPool.enemy_types
+var max_health: float = 10
+var health: float = 10
+var is_destroyed: bool = false  # Flag to prevent multiple pooling
 
 const DESTINATION_THRESHOLD: float = 100.0  # Adjust this value based on your needs
 
@@ -29,7 +25,9 @@ func _physics_process(delta: float) -> void:
 			is_attacking = true
 	else:
 		velocity = velocity.move_toward(get_direction_to_destination() * speed, speed * delta)
+	detect_lateral_velocity_change()
 	move_and_slide()
+
 
 func is_at_destination() -> bool:
 	var distance_to_destination = position.distance_to(destination)
@@ -45,3 +43,14 @@ func get_direction_to_destination() -> Vector2:
 
 func _on_commence_attack() -> void:
 	preparation_timer.start()
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if is_destroyed:
+		return  # Already destroyed, ignore further hits
+	
+	health -= area.damage
+	print(str(health))
+	if health <= 0:
+		is_destroyed = true
+		EnemyPool.return_enemy(self)

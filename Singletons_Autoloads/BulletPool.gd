@@ -39,7 +39,8 @@ func request_bullet(type: bullet_types, location: Vector2, direction: Vector2):
 	unpooled.append(bullet)
 	activate_bullet(bullet)
 
-func return_bullet(used_bullet: BulletBase, type: bullet_types):
+func return_bullet(used_bullet: BulletBase):
+	var type: bullet_types = used_bullet.bullet_type
 	var pool: Array[BulletBase] = bullet_pools[type]
 	var unpooled: Array[BulletBase] = unpooled_bullets[type]
 	pool.append(used_bullet)
@@ -50,14 +51,14 @@ func activate_bullet(bullet: BulletBase):
 	bullet.set_process(true)
 	bullet.set_physics_process(true)
 	bullet.visible = true
-	bullet.hurtbox_active = true
+	bullet.hurtbox.hurtbox_active = true
 	bullet.animation_active = true
 
 func deactivate_bullet(bullet: BulletBase):
 	bullet.set_process(false)
 	bullet.set_physics_process(false)
 	bullet.visible = false
-	bullet.hurtbox_active = false
+	bullet.hurtbox.hurtbox_active = false
 	bullet.animation_active = false
 	bullet.position = Vector2(0, 0)
 

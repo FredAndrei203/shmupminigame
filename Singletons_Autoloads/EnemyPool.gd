@@ -25,19 +25,21 @@ static func initialize_arrays_of_pools():
 		var unpooled: Array[EnemyBase]
 		unpooled_enemies[type] = unpooled
 
-static func request_enemy(type: enemy_types, location: Vector2) -> EnemyBase:
+static func request_enemy(type: enemy_types) -> EnemyBase:
 	var pool: Array[EnemyBase] = enemy_pools[type]
 	var unpooled: Array[EnemyBase] = unpooled_enemies[type]
 	var enemy: EnemyBase
 	if pool.is_empty():
 		enemy = enemy_scenes[type].instantiate()
+		unpooled.append(enemy)
+		return enemy
 	else:
 		enemy = pool.pop_back()
-	enemy.position = location
-	unpooled.append(enemy)
-	return enemy
+		unpooled.append(enemy)
+		return enemy
 
-static func return_enemy(used_enemy: EnemyBase, type: enemy_types):
+static func return_enemy(used_enemy: EnemyBase):
+	var type: enemy_types = used_enemy.enemy_type
 	var pool: Array[EnemyBase] = enemy_pools[type]
 	var unpooled: Array[EnemyBase] = unpooled_enemies[type]
 	pool.append(used_enemy)
@@ -48,16 +50,21 @@ static func activate_enemy(enemy: EnemyBase):
 	enemy.set_process(true)
 	enemy.set_physics_process(true)
 	enemy.visible = true
-	enemy.hurtbox_active = true
+	enemy.hurtbox.hurtbox_active = true
 	enemy.animation_active = true
 	enemy.weapon.weapon_activated = true
+	enemy.hitbox_active = true
+	enemy.health = enemy.max_health
+	enemy.is_destroyed = false
+	enemy.is_attacking = false
 
 static func deactivate_enemy(enemy: EnemyBase):
 	enemy.set_process(false)
 	enemy.set_physics_process(false)
 	enemy.visible = false
-	enemy.hurtbox_active = false
+	enemy.hurtbox.hurtbox_active = false
 	enemy.animation_active = false
 	enemy.position = Vector2.ZERO
 	enemy.preparation_timer.stop()
 	enemy.weapon.weapon_activated = false
+	enemy.hitbox_active = false

@@ -20,3 +20,5 @@ shape = SubResource("CircleShape2D_jyjmt")
 sprite_frames = SubResource("SpriteFrames_x5bjt")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("2_jyjmt")]
+
+[connection signal="area_entered" from="HurtboxComponent" to="." method="_on_hurtbox_component_area_entered"]

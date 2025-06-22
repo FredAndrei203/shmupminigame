@@ -10,3 +10,5 @@ script = ExtResource("1_h2yge")
 [node name="GameScene" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="DeveloperTool" parent="." instance=ExtResource("2_0xm2m")]
+
+[editable path="DeveloperTool"]

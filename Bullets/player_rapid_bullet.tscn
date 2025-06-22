@@ -11,6 +11,7 @@ func _ready() -> void:
 	bullet_type = BulletPool.bullet_types.PLAYER_RAPID
 	bullet_speed = 1500
 	rotate(-PI/2)
+	hurtbox.damage = 1
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xec86"]
@@ -24,6 +25,10 @@ script = SubResource("GDScript_i4f1w")
 position = Vector2(-22, 0)
 sprite_frames = ExtResource("3_xec86")
 animation = &"BulletSprite"
+
+[node name="HurtboxComponent" parent="." index="2"]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_xec86")
