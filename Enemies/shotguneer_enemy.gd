@@ -1,11 +1,11 @@
-class_name MarksmanEnemy
+class_name ShotguneerEnemy
 extends EnemyBase
 
 func _ready() -> void:
-	speed = 600
-	weapon = $MarksmanWeapon
-	enemy_type = EnemyPool.enemy_types.MARKSMAN
-	max_health = 3
+	speed = 350
+	
+	enemy_type = EnemyPool.enemy_types.SHOTGUNEER
+	max_health = 6
 	health = max_health
 
 

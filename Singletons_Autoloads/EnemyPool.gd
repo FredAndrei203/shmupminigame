@@ -14,7 +14,7 @@ static var enemy_pools: Dictionary[enemy_types, Array]
 static var unpooled_enemies: Dictionary[enemy_types, Array]
 static var group_of_enemy_type: Dictionary[enemy_types, StringName] = {
 	enemy_types.MARKSMAN: "Marksman"#,
-	#enemy_types.SHOTGUNEER: "Shotgunner",
+	#enemy_types.SHOTGUNEER: "Shotguneer",
 	#enemy_types.PATTERNSPAMMER: "PatternSpammer"
 }
 

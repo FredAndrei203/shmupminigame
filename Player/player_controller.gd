@@ -1,7 +1,12 @@
 class_name PlayerController
 extends Node2D
 
-var player: Player
+var player: Player:
+	set(new_player):
+		if player != null:
+			player.is_hit.disconnect(_on_player_is_hit)
+		player = new_player
+		player.is_hit.connect(_on_player_is_hit)
 
 func _process(delta: float) -> void:
 	detect_direction_input()
@@ -26,3 +31,10 @@ func detect_if_firing():
 
 func translate_movement_input():
 	player.velocity = player.speed * player.movement_direction
+
+func _on_player_is_hit():
+	set_process(false)
+	player.set_physics_process(false)
+	player.set_process(false)
+	player.hitbox_active = false
+	player.hide()

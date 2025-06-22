@@ -3,6 +3,7 @@ extends Entity
 
 #The weapon of the player
 @onready var hitbox_sprite = $HitboxSprite
+signal is_hit
 
 func _ready() -> void:
 	weapon = $RapidFireWeapon
@@ -34,4 +35,4 @@ func get_speed():
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	pass
+	is_hit.emit()

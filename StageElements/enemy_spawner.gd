@@ -18,7 +18,7 @@ func choose_random_enemies():
 func spawn_marksmen_squadron():
 	spawn_point.progress_ratio = randf()
 	var random_destination: Vector2 = destinations.get_random_destination()
-	for idx in range(3):
+	for idx in range(5):
 		var type: EnemyPool.enemy_types = EnemyPool.enemy_types.MARKSMAN
 		var marksman: MarksmanEnemy = EnemyPool.request_enemy(type)
 		marksman.position = spawn_point.position

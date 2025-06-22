@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gy0aj8f4khtl"]
+
+[ext_resource type="PackedScene" uid="uid://dg5o0c5fmce6f" path="res://BaseScenes/weapon_base.tscn" id="1_18aoi"]
+[ext_resource type="Script" uid="uid://d38gtty8m6u28" path="res://Weapons/shotguneer_weapon.gd" id="2_nnv07"]
+
+[node name="ShotguneerWeapon" instance=ExtResource("1_18aoi")]
+script = ExtResource("2_nnv07")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.05
