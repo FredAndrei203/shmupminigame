@@ -6,3 +6,4 @@ func _ready() -> void:
 
 func fire_weapon():
 	BulletPool.request_bullet(bullet_type, global_position, firing_direction)
+	cooldown.start()

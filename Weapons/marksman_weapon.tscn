@@ -5,3 +5,6 @@
 
 [node name="MarksmanWeapon" instance=ExtResource("1_u723t")]
 script = ExtResource("2_nd2h5")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.05

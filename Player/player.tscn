@@ -16,7 +16,6 @@ resource_local_to_scene = true
 radius = 3.0
 
 [node name="Player" instance=ExtResource("1_l8h54")]
-collision_mask = 0
 script = ExtResource("2_4ntmi")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -37,6 +36,7 @@ region_rect = Rect2(276, 25, 64, 60)
 script = ExtResource("7_od3ui")
 
 [node name="Hitbox" parent="." index="4"]
+collision_layer = 1
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]

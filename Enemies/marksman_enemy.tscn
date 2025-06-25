@@ -11,6 +11,7 @@ resource_local_to_scene = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_y55e8"]
 
 [node name="MarksmanEnemy" groups=["Marksman"] instance=ExtResource("1_t5ct0")]
+collision_mask = 1
 script = ExtResource("2_y55e8")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -23,9 +24,7 @@ animation = &"NormalAnimation"
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_y55e8")
 
-[node name="PreparationTimer" parent="." index="4"]
+[node name="PreparationTimer" parent="." index="4" groups=["Marksman"]]
 wait_time = 0.2
 
 [node name="MarksmanWeapon" parent="." index="5" instance=ExtResource("4_05mtw")]
-
-[connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]

@@ -1,6 +1,8 @@
 class_name WeaponBase
 extends Node2D
 
+signal weapon_ready
+
 @onready var cooldown: Timer = $Cooldown
 
 var bullet_type: BulletPool.bullet_types
@@ -22,3 +24,4 @@ func fire_weapon():
 
 func _on_cooldown_timeout() -> void:
 	can_fire = true
+	weapon_ready.emit()

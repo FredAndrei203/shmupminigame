@@ -4,9 +4,8 @@
 [ext_resource type="Script" uid="uid://cmalnenuhy4t1" path="res://Bullets/marksman_bullet.gd" id="2_enmy7"]
 [ext_resource type="SpriteFrames" uid="uid://dtkyy3u8hrekd" path="res://Bullets/BulletSpriteResources/MarksmanBulletSprite.tres" id="2_slg4p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slg4p"]
-resource_local_to_scene = true
-size = Vector2(8, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_enmy7"]
+radius = 4.0
 
 [node name="MarksmanBullet" groups=["MarksmanBullet"] instance=ExtResource("1_epovi")]
 script = ExtResource("2_enmy7")
@@ -18,9 +17,9 @@ frame_progress = 0.367894
 
 [node name="HurtboxComponent" parent="." index="2"]
 collision_layer = 8
-collision_mask = 0
+collision_mask = 1
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
-shape = SubResource("RectangleShape2D_slg4p")
+shape = SubResource("CircleShape2D_enmy7")
 
 [editable path="HurtboxComponent"]

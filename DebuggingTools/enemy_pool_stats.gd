@@ -9,7 +9,7 @@ extends VBoxContainer
 
 var enemy_spawner: EnemySpawner
 
-var enemy_type_target: EnemyPool.enemy_types = EnemyPool.enemy_types.MARKSMAN
+var enemy_type_target: EnemyPool.enemy_types = EnemyPool.enemy_types.SHOTGUNEER
 
 
 func _process(delta: float) -> void:

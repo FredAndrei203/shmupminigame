@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bd1urhh4u3o5r"]
+[gd_scene load_steps=23 format=3 uid="uid://bd1urhh4u3o5r"]
 
 [ext_resource type="PackedScene" uid="uid://b8yopd2yw36hr" path="res://BaseScenes/enemy_base.tscn" id="1_30jvu"]
 [ext_resource type="Texture2D" uid="uid://be02fbt6ts1oa" path="res://Assets/PC Computer - Touhou Kaeizuka Phantasmagoria of Flower View - Enemies.png" id="2_buwkr"]
 [ext_resource type="Script" uid="uid://diu3b4yjj57nk" path="res://Enemies/shotguneer_enemy.gd" id="2_j85jj"]
+[ext_resource type="PackedScene" uid="uid://gy0aj8f4khtl" path="res://Weapons/shotguneer_weapon.tscn" id="4_1ygh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buwkr"]
 resource_local_to_scene = true
@@ -151,6 +152,6 @@ shape = SubResource("RectangleShape2D_buwkr")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_j85jj")
-animation = &"StillMovingLaterally"
+animation = &"NormalAnimation"
 
-[connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]
+[node name="ShotguneerWeapon" parent="." index="5" instance=ExtResource("4_1ygh4")]

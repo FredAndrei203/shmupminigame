@@ -12,18 +12,16 @@ var target_of_malice: Player
 var children: Array[EnemyBase]
 
 func choose_random_enemies():
-	spawn_marksmen_squadron()
-	next_wave_timer.start()
+	spawn_sqaudron(1, EnemyPool.enemy_types.SHOTGUNEER)
 
-func spawn_marksmen_squadron():
+func spawn_sqaudron(count: int, type: EnemyPool.enemy_types):
 	spawn_point.progress_ratio = randf()
 	var random_destination: Vector2 = destinations.get_random_destination()
-	for idx in range(5):
-		var type: EnemyPool.enemy_types = EnemyPool.enemy_types.MARKSMAN
-		var marksman: MarksmanEnemy = EnemyPool.request_enemy(type)
-		marksman.position = spawn_point.position
-		marksman.destination = random_destination
-		spawn_queue.append(marksman)
+	for idx in range(count):
+		var enemy: EnemyBase = EnemyPool.request_enemy(type)
+		enemy.position = spawn_point.position
+		enemy.destination = random_destination
+		spawn_queue.append(enemy)
 	spawn_timer.start()
 
 

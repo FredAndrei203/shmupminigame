@@ -8,7 +8,8 @@ func _ready() -> void:
 #Fire a bullet when ready
 func fire_weapon():
 	if can_fire:
-		BulletPool.request_bullet(bullet_type, $BulletMuzzle1.global_position, firing_direction)
-		BulletPool.request_bullet(bullet_type, $BulletMuzzle2.global_position, firing_direction)
+		var muzzles: Array = $Muzzles.get_children()
+		for muzzle in muzzles:
+			BulletPool.request_bullet(bullet_type, muzzle.global_position, firing_direction)
 		can_fire = false
 		cooldown.start()

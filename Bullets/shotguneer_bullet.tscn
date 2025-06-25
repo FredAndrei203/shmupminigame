@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://k0dnnq4c81x3"]
+
+[ext_resource type="PackedScene" uid="uid://drup2bwhio5ue" path="res://BaseScenes/bullet_base.tscn" id="1_tmebx"]
+[ext_resource type="Script" uid="uid://c0dts8spiwsxc" path="res://Bullets/shotguneer_bullet.gd" id="2_e5bw7"]
+[ext_resource type="SpriteFrames" uid="uid://f5qv71wkussi" path="res://Bullets/BulletSpriteResources/ShotguneerBulletSprite.tres" id="3_acnt8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acnt8"]
+radius = 8.0
+
+[node name="ShotguneerBullet" instance=ExtResource("1_tmebx")]
+script = ExtResource("2_e5bw7")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("3_acnt8")
+
+[node name="HurtboxComponent" parent="." index="2" groups=["ShotguneerBullet"]]
+collision_layer = 8
+collision_mask = 1
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_acnt8")
+
+[editable path="HurtboxComponent"]

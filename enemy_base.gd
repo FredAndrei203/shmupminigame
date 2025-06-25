@@ -14,6 +14,7 @@ var enemy_type: EnemyPool.enemy_types
 var max_health: float = 10
 var health: float = 10
 var is_destroyed: bool = false  # Flag to prevent multiple pooling
+var fire_count: int = 3
 
 const DESTINATION_THRESHOLD: float = 100.0  # Adjust this value based on your needs
 
@@ -40,6 +41,9 @@ func get_direction_to_destination() -> Vector2:
 		return Vector2.ZERO
 	return (destination - position).normalized()
 
+func engage_target():
+	pass
+
 
 func _on_commence_attack() -> void:
 	preparation_timer.start()
@@ -47,10 +51,12 @@ func _on_commence_attack() -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if is_destroyed:
-		return  # Already destroyed, ignore further hits
-	
+		return
 	health -= area.damage
-	print(str(health))
 	if health <= 0:
 		is_destroyed = true
 		EnemyPool.return_enemy(self)
+
+
+func _on_preparation_timer_timeout() -> void:
+	engage_target()

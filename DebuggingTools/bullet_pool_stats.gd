@@ -10,7 +10,7 @@ extends VBoxContainer
 @onready var discrepancy_label = $Discrepancy
 
 #The bullet type that the pool I'm testing holds
-var bullet_type_target: BulletPool.bullet_types = BulletPool.bullet_types.MARKSMAN
+var bullet_type_target: BulletPool.bullet_types = BulletPool.bullet_types.SHOTGUNEER
 
 #Check the number of the bullets, how many of them are pooled and unpooled, and the discrepancy
 #(Discrepancy should be 0)

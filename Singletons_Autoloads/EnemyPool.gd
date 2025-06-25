@@ -9,12 +9,13 @@ enum enemy_types {
 
 static var enemy_scenes: Dictionary[enemy_types, PackedScene] = {
 	enemy_types.MARKSMAN: preload("res://Enemies/marksman_enemy.tscn"),
+	enemy_types.SHOTGUNEER: preload("res://Enemies/shotguneer_enemy.tscn")
 }
 static var enemy_pools: Dictionary[enemy_types, Array]
 static var unpooled_enemies: Dictionary[enemy_types, Array]
 static var group_of_enemy_type: Dictionary[enemy_types, StringName] = {
-	enemy_types.MARKSMAN: "Marksman"#,
-	#enemy_types.SHOTGUNEER: "Shotguneer",
+	enemy_types.MARKSMAN: "Marksman",
+	enemy_types.SHOTGUNEER: "Shotguneer"#,
 	#enemy_types.PATTERNSPAMMER: "PatternSpammer"
 }
 
