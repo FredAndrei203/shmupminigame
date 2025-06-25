@@ -10,7 +10,6 @@ extends BulletBase
 func _ready() -> void:
 	bullet_type = BulletPool.bullet_types.PLAYER_RAPID
 	bullet_speed = 1500
-	rotate(-PI/2)
 	hurtbox.damage = 1
 "
 

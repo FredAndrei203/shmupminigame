@@ -4,6 +4,7 @@ extends Entity
 #The weapon of the player
 @onready var hitbox_sprite = $HitboxSprite
 signal is_hit
+signal focus_engaged(focus: bool)
 
 func _ready() -> void:
 	weapon = $RapidFireWeapon
@@ -15,6 +16,7 @@ var focusing: bool = false: #If slowing down (holding shift)
 	set(is_focusing):
 		focusing = is_focusing
 		hitbox_sprite.visible = is_focusing
+		focus_engaged.emit(focusing)
 var movement_direction: Vector2 = Vector2(0, 0)
 
 

@@ -7,19 +7,31 @@
 script = ExtResource("2_bnvxo")
 
 [node name="Cooldown" parent="." index="0"]
-wait_time = 0.05
+wait_time = 0.08
 
 [node name="Muzzles" type="Node2D" parent="." index="1"]
 position = Vector2(0, -30)
 
 [node name="BulletMuzzle1" type="Marker2D" parent="Muzzles" index="0"]
-position = Vector2(-5, 0)
+position = Vector2(-30, 10)
 
 [node name="BulletMuzzle2" type="Marker2D" parent="Muzzles" index="1"]
-position = Vector2(5, 0)
+position = Vector2(-22, 0)
 
 [node name="BulletMuzzle3" type="Marker2D" parent="Muzzles" index="2"]
-position = Vector2(-15, 0)
+position = Vector2(-18, -11)
 
 [node name="BulletMuzzle4" type="Marker2D" parent="Muzzles" index="3"]
-position = Vector2(15, 0)
+position = Vector2(-8, -15)
+
+[node name="BulletMuzzle5" type="Marker2D" parent="Muzzles" index="4"]
+position = Vector2(8, -15)
+
+[node name="BulletMuzzle6" type="Marker2D" parent="Muzzles" index="5"]
+position = Vector2(18, -11)
+
+[node name="BulletMuzzle7" type="Marker2D" parent="Muzzles" index="6"]
+position = Vector2(22, 0)
+
+[node name="BulletMuzzle8" type="Marker2D" parent="Muzzles" index="7"]
+position = Vector2(30, 10)

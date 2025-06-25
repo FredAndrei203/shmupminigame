@@ -42,4 +42,5 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_vtle1")
 
+[connection signal="focus_engaged" from="." to="RapidFireWeapon" method="_on_player_focus_engaged"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

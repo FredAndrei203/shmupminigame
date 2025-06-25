@@ -22,6 +22,7 @@ var bullet_direction: Vector2 = Vector2(0, 0):
 	set(new_direction):
 		bullet_direction = new_direction
 		velocity = bullet_direction * bullet_speed
+		rotation = bullet_direction.angle()
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

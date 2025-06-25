@@ -15,6 +15,7 @@ var max_health: float = 10
 var health: float = 10
 var is_destroyed: bool = false  # Flag to prevent multiple pooling
 var fire_count: int = 3
+var max_fire_count: int = 3
 
 const DESTINATION_THRESHOLD: float = 100.0  # Adjust this value based on your needs
 
@@ -42,7 +43,15 @@ func get_direction_to_destination() -> Vector2:
 	return (destination - position).normalized()
 
 func engage_target():
-	pass
+	weapon.firing_direction = (target.global_position - global_position).normalized()
+	weapon.fire_weapon()
+	fire_count -= 1
+	if fire_count <= 0:
+		request_next_destination.emit(self)
+		fire_count = max_fire_count
+	else:
+		await weapon.weapon_ready
+		engage_target()
 
 
 func _on_commence_attack() -> void:
