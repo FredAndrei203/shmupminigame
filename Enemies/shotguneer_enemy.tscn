@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bd1urhh4u3o5r"]
+[gd_scene load_steps=25 format=3 uid="uid://bd1urhh4u3o5r"]
 
 [ext_resource type="PackedScene" uid="uid://b8yopd2yw36hr" path="res://BaseScenes/enemy_base.tscn" id="1_30jvu"]
 [ext_resource type="Texture2D" uid="uid://be02fbt6ts1oa" path="res://Assets/PC Computer - Touhou Kaeizuka Phantasmagoria of Flower View - Enemies.png" id="2_buwkr"]
@@ -144,6 +144,14 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ygh4"]
+radius = 11.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xnrqd"]
+radius = 11.0
+height = 28.0
+
 [node name="ShotguneerEnemy" groups=["Shotguneer"] instance=ExtResource("1_30jvu")]
 script = ExtResource("2_j85jj")
 
@@ -154,4 +162,14 @@ shape = SubResource("RectangleShape2D_buwkr")
 sprite_frames = SubResource("SpriteFrames_j85jj")
 animation = &"NormalAnimation"
 
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_1ygh4")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_xnrqd")
+
 [node name="ShotguneerWeapon" parent="." index="5" instance=ExtResource("4_1ygh4")]
+
+[editable path="HurtboxComponent"]

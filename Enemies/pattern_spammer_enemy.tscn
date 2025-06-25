@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://4av2bv8itepy"]
+
+[ext_resource type="PackedScene" uid="uid://b8yopd2yw36hr" path="res://BaseScenes/enemy_base.tscn" id="1_bcsy2"]
+[ext_resource type="Script" uid="uid://dfduxvp8hhwce" path="res://Enemies/pattern_spammer_enemy.gd" id="2_71va6"]
+[ext_resource type="SpriteFrames" uid="uid://cxkblpds0qnjx" path="res://Enemies/patternspammer.tres" id="2_ncaqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncaqh"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ncaqh"]
+radius = 12.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71va6"]
+radius = 12.0
+height = 28.0
+
+[node name="PatternSpammerEnemy" instance=ExtResource("1_bcsy2")]
+script = ExtResource("2_71va6")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_ncaqh")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_ncaqh")
+animation = &"NormalAnimation"
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ncaqh")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_71va6")
+
+[editable path="HurtboxComponent"]

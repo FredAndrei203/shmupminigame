@@ -12,9 +12,9 @@ var target_of_malice: Player
 var children: Array[EnemyBase]
 var has_spawned_high_ranks: bool = false
 
-var max_pattern_spammer_on_play: int = 5
+var max_pattern_spammer_on_play: int = 2
 var max_shotguneers_on_play: int = 10
-var max_markmen_on_play: int = 20
+var max_markmen_on_play: int = 30
 
 func deploy_next_squad():
 	#var pattern_spammer_count: int

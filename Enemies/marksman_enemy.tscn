@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://boslwgqbnx2u2"]
+[gd_scene load_steps=8 format=3 uid="uid://boslwgqbnx2u2"]
 
 [ext_resource type="PackedScene" uid="uid://b8yopd2yw36hr" path="res://BaseScenes/enemy_base.tscn" id="1_t5ct0"]
 [ext_resource type="SpriteFrames" uid="uid://cdbj7o371lmax" path="res://Enemies/marksman.tres" id="2_gir5p"]
@@ -7,8 +7,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y55e8"]
 resource_local_to_scene = true
+size = Vector2(1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y55e8"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05mtw"]
+radius = 11.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cbdeq"]
+radius = 11.0
+height = 28.0
 
 [node name="MarksmanEnemy" groups=["Marksman"] instance=ExtResource("1_t5ct0")]
 collision_mask = 1
@@ -22,9 +29,16 @@ sprite_frames = ExtResource("2_gir5p")
 animation = &"NormalAnimation"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource("CircleShape2D_y55e8")
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_05mtw")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_cbdeq")
 
 [node name="PreparationTimer" parent="." index="4" groups=["Marksman"]]
 wait_time = 0.2
 
 [node name="MarksmanWeapon" parent="." index="5" instance=ExtResource("4_05mtw")]
+
+[editable path="HurtboxComponent"]
