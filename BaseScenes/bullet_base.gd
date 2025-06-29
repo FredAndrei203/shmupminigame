@@ -24,7 +24,7 @@ var bullet_direction: Vector2 = Vector2(0, 0):
 		velocity = bullet_direction * bullet_speed
 		rotation = bullet_direction.angle()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	deactivate_if_outside_view()
 
@@ -42,5 +42,5 @@ func deactivate_if_outside_view():
 		BulletPool.return_bullet(self)
 
 
-func _on_hurtbox_component_area_entered(area: Area2D) -> void:
+func _on_hurtbox_component_area_entered(_area: Area2D) -> void:
 	BulletPool.return_bullet(self)

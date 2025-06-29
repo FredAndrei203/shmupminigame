@@ -9,7 +9,8 @@ enum enemy_types {
 
 static var enemy_scenes: Dictionary[enemy_types, PackedScene] = {
 	enemy_types.MARKSMAN: preload("res://Enemies/marksman_enemy.tscn"),
-	enemy_types.SHOTGUNEER: preload("res://Enemies/shotguneer_enemy.tscn")
+	enemy_types.SHOTGUNEER: preload("res://Enemies/shotguneer_enemy.tscn"),
+	enemy_types.PATTERNSPAMMER: preload("res://Enemies/pattern_spammer_enemy.tscn")
 }
 static var enemy_pools: Dictionary[enemy_types, Array]
 static var unpooled_enemies: Dictionary[enemy_types, Array]
@@ -58,6 +59,7 @@ static func activate_enemy(enemy: EnemyBase):
 	enemy.health = enemy.max_health
 	enemy.is_destroyed = false
 	enemy.is_attacking = false
+	enemy.fire_count = enemy.max_fire_count
 
 static func deactivate_enemy(enemy: EnemyBase):
 	enemy.set_process(false)
@@ -69,3 +71,4 @@ static func deactivate_enemy(enemy: EnemyBase):
 	enemy.preparation_timer.stop()
 	enemy.weapon.weapon_activated = false
 	enemy.hitbox_active = false
+	enemy.fire_count = 0

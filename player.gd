@@ -3,12 +3,15 @@ extends Entity
 
 #The weapon of the player
 @onready var hitbox_sprite = $HitboxSprite
+var screen_size
 signal is_hit
 signal focus_engaged(focus: bool)
 
 func _ready() -> void:
 	weapon = $RapidFireWeapon
 	speed = 600
+	screen_size = get_viewport_rect().size
+	
 
 #Slowed movement speed
 var focus_speed_mod: float = 0.4
@@ -22,9 +25,10 @@ var movement_direction: Vector2 = Vector2(0, 0)
 
 
 #Every frame, detect lateral velocity change, and change player animation accordingly
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	detect_lateral_velocity_change()
 	move_and_slide()
+	position = position.clamp(Vector2.ZERO, screen_size)
 
 func fire_weapon():
 	weapon.fire_weapon()
@@ -36,5 +40,5 @@ func get_speed():
 		return speed
 
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
+func _on_hitbox_area_entered(_area: Area2D) -> void:
 	is_hit.emit()

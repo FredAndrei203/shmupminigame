@@ -5,7 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dtkyy3u8hrekd" path="res://Bullets/BulletSpriteResources/MarksmanBulletSprite.tres" id="2_slg4p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_enmy7"]
-radius = 3.0
+radius = 2.0
 
 [node name="MarksmanBullet" groups=["MarksmanBullet"] instance=ExtResource("1_epovi")]
 script = ExtResource("2_enmy7")

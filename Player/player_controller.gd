@@ -8,7 +8,7 @@ var player: Player:
 		player = new_player
 		player.is_hit.connect(_on_player_is_hit)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	detect_direction_input()
 	detect_if_focusing()
 	detect_if_firing()

@@ -3,20 +3,23 @@ extends Node
 enum bullet_types {
 	PLAYER_RAPID,
 	MARKSMAN,
-	SHOTGUNEER
+	SHOTGUNEER,
+	PATTERN_SPAMMER
 }
 
 var bullet_scenes: Dictionary[bullet_types, PackedScene] = {
 	bullet_types.PLAYER_RAPID: preload("res://Bullets/player_rapid_bullet.tscn"),
 	bullet_types.MARKSMAN: preload("res://Bullets/marksman_bullet.tscn"),
-	bullet_types.SHOTGUNEER: preload("res://Bullets/shotguneer_bullet.tscn")
+	bullet_types.SHOTGUNEER: preload("res://Bullets/shotguneer_bullet.tscn"),
+	bullet_types.PATTERN_SPAMMER: preload("res://Bullets/pattern_spammer_bullet.tscn")
 }
 var bullet_pools: Dictionary[bullet_types, Array]
 var unpooled_bullets: Dictionary[bullet_types, Array]
 var group_of_bullet_type: Dictionary[bullet_types, StringName] = {
 	bullet_types.PLAYER_RAPID: "RapidFireBullet",
 	bullet_types.MARKSMAN: "MarksmanBullet",
-	bullet_types.SHOTGUNEER: "ShotguneerBullet"
+	bullet_types.SHOTGUNEER: "ShotguneerBullet",
+	bullet_types.PATTERN_SPAMMER: "PatternSpammerBullet"
 }
 
 func _ready() -> void:

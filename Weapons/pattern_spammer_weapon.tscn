@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://7mkue0lm0jhd"]
+
+[ext_resource type="PackedScene" uid="uid://dg5o0c5fmce6f" path="res://BaseScenes/weapon_base.tscn" id="1_hqqa0"]
+[ext_resource type="Script" uid="uid://cqdyg2s3xdmva" path="res://Weapons/pattern_spammer_weapon.gd" id="2_3ww1u"]
+
+[node name="PatternSpammerWeapon" instance=ExtResource("1_hqqa0")]
+script = ExtResource("2_3ww1u")
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 0.5
+
+[node name="Muzzles" type="Node2D" parent="." index="1"]
+
+[node name="Marker2D" type="Marker2D" parent="Muzzles" index="0"]
+position = Vector2(10, 0)
+
+[node name="Line2D" type="Line2D" parent="Muzzles/Marker2D" index="0"]
+position = Vector2(-1.51472, 8.48528)
+rotation = 0.785398
+points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Muzzles" index="1"]
+position = Vector2(8.48528, -8.48528)
+rotation = -0.785398
+
+[node name="Marker2D3" type="Marker2D" parent="Muzzles" index="2"]
+position = Vector2(-5.24537e-07, -12)
+rotation = -1.5708
+
+[node name="Marker2D4" type="Marker2D" parent="Muzzles" index="3"]
+position = Vector2(-8.48528, -8.48528)
+rotation = -2.35619
+
+[node name="Marker2D5" type="Marker2D" parent="Muzzles" index="4"]
+position = Vector2(-12, 1.04907e-06)
+rotation = 3.14159
+
+[node name="Marker2D6" type="Marker2D" parent="Muzzles" index="5"]
+position = Vector2(-8.48528, 8.48528)
+rotation = 2.35619
+
+[node name="Marker2D7" type="Marker2D" parent="Muzzles" index="6"]
+position = Vector2(1.43099e-07, 12)
+rotation = 1.5708
+
+[node name="Marker2D8" type="Marker2D" parent="Muzzles" index="7"]
+position = Vector2(8.48528, 8.48528)
+rotation = 0.785398

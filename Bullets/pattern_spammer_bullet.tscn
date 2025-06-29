@@ -1,0 +1,144 @@
+[gd_scene load_steps=22 format=3 uid="uid://dwb1nx432u2ii"]
+
+[ext_resource type="PackedScene" uid="uid://drup2bwhio5ue" path="res://BaseScenes/bullet_base.tscn" id="1_vv6tj"]
+[ext_resource type="Script" uid="uid://bl7lal354b3jf" path="res://Bullets/pattern_spammer_bullet.gd" id="2_1rqp7"]
+[ext_resource type="Texture2D" uid="uid://bjjgdi5101t2f" path="res://Assets/PC Computer - Touhou Chireiden Subterranean Animism - Bullets.png" id="2_nt1km"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rqp7"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(5, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdfll"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(21, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6timx"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(37, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xfhd"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(53, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl33t"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(69, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4cpf"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(85, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ffnh"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(101, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raatc"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(117, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrur2"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(133, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8cbq"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(149, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iteq2"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(165, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6uvq"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(181, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juo17"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(197, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiatm"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(213, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5r6j"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(229, 23, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gim3i"]
+atlas = ExtResource("2_nt1km")
+region = Rect2(245, 23, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xr8dv"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rqp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdfll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6timx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xfhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl33t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4cpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ffnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raatc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrur2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8cbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iteq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6uvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juo17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiatm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5r6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gim3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv6tj"]
+radius = 2.0
+height = 8.0
+
+[node name="PatternSpammerBullet" groups=["PatternSpammerBullet"] instance=ExtResource("1_vv6tj")]
+script = ExtResource("2_1rqp7")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_xr8dv")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(-2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vv6tj")
+
+[editable path="HurtboxComponent"]

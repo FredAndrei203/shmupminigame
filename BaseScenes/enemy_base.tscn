@@ -37,6 +37,5 @@ collision_layer = 8
 one_shot = true
 
 [connection signal="commence_attack" from="." to="." method="_on_commence_attack"]
-[connection signal="lateral_velocity_changed" from="." to="." method="_on_lateral_velocity_changed"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="PreparationTimer" to="." method="_on_preparation_timer_timeout"]

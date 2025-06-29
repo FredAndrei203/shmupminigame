@@ -3,7 +3,6 @@ extends Entity
 
 signal commence_attack
 signal request_next_destination(enemy: EnemyBase)
-signal lateral_velocity_changed(new_velocity: int)
 
 @onready var hurtbox: HurtboxComponent = $HurtboxComponent
 @onready var preparation_timer: Timer = $PreparationTimer
@@ -42,16 +41,15 @@ func get_direction_to_destination() -> Vector2:
 		return Vector2.ZERO
 	return (destination - position).normalized()
 
+
 func engage_target():
+	if fire_count <= 0:
+		return
 	weapon.firing_direction = (target.global_position - global_position).normalized()
 	weapon.fire_weapon()
 	fire_count -= 1
 	if fire_count <= 0:
 		request_next_destination.emit(self)
-		fire_count = max_fire_count
-	else:
-		await weapon.weapon_ready
-		engage_target()
 
 
 func _on_commence_attack() -> void:
@@ -68,4 +66,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 
 func _on_preparation_timer_timeout() -> void:
+	fire_count = max_fire_count
 	engage_target()

@@ -12,14 +12,14 @@ extends WeaponBase
 @onready var muzzle8: Marker2D = $Muzzles/BulletMuzzle8
 
 var unfocused_muzzle_orientations: Array[float] = [
-	deg_to_rad(-7),
+	deg_to_rad(-15),
+	deg_to_rad(-10),
 	deg_to_rad(-5),
-	deg_to_rad(-3),
 	deg_to_rad(-1),
 	deg_to_rad(1),
-	deg_to_rad(3),
 	deg_to_rad(5),
-	deg_to_rad(7)
+	deg_to_rad(10),
+	deg_to_rad(15)
 ]
 
 var unfocused_muzzle_positions: Array[Vector2] = [
