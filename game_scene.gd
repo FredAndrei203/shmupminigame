@@ -12,3 +12,7 @@ func _ready() -> void:
 	player_controller.player = player
 	enemy_spawner.destinations = enemy_destinations
 	enemy_spawner.target_of_malice = player
+
+
+func _on_player_is_hit() -> void:
+	get_tree().paused = true

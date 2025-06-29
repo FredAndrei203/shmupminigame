@@ -22,6 +22,17 @@ var unfocused_muzzle_orientations: Array[float] = [
 	deg_to_rad(15)
 ]
 
+var focused_muzzle_orientations: Array[float] = [
+	deg_to_rad(-4),
+	deg_to_rad(-3),
+	deg_to_rad(-2),
+	deg_to_rad(-1),
+	deg_to_rad(1),
+	deg_to_rad(2),
+	deg_to_rad(3),
+	deg_to_rad(4)
+]
+
 var unfocused_muzzle_positions: Array[Vector2] = [
 	Vector2(-30, 10),
 	Vector2(-22, 0),
@@ -34,14 +45,14 @@ var unfocused_muzzle_positions: Array[Vector2] = [
 ]
 
 var focused_muzzle_positions: Array[Vector2] = [
-	Vector2(-18, -3),
-	Vector2(-13, -4),
-	Vector2(-8, -6),
+	Vector2(-25, -3),
+	Vector2(-18, -4),
+	Vector2(-11, -6),
 	Vector2(-3, -5),
 	Vector2(3, -5),
-	Vector2(8, -6),
-	Vector2(13, -4),
-	Vector2(18, -3)
+	Vector2(11, -6),
+	Vector2(18, -4),
+	Vector2(25, -3)
 ]
 
 var focus_mode: bool = false
@@ -68,8 +79,9 @@ func fire_weapon():
 func focus_shots(delta: float):
 	for idx in range(muzzles.size()):
 		var pos: Vector2 = focused_muzzle_positions[idx]
+		var rot: float = focused_muzzle_orientations[idx]
 		muzzles[idx].position = muzzles[idx].position.move_toward(pos, delta)
-		muzzles[idx].rotation = move_toward(muzzles[idx].rotation, 0, delta)
+		muzzles[idx].rotation = move_toward(muzzles[idx].rotation, rot, delta)
 
 func unfocus_shots(delta: float):
 	for idx in range(muzzles.size()):
