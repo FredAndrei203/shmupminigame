@@ -21,7 +21,7 @@ BulletPool="*res://Singletons_Autoloads/BulletPool.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GlobalPosition2DGS/plugin.cfg")
+enabled=PackedStringArray("res://addons/GlobalPosition2DGS/plugin.cfg", "res://addons/stopwatch/plugin.cfg")
 
 [input]
 

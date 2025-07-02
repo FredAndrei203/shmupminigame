@@ -3,8 +3,8 @@ extends Node2D
 
 @onready var spawn_area = $SpawnAreas
 @onready var spawn_point = $SpawnAreas/SpawnPoint
-@onready var next_wave_timer = $NextWaveTimer
-@onready var spawn_timer = $SpawnTimer
+@onready var next_wave_timer: Timer = $NextWaveTimer
+@onready var spawn_timer: Timer = $SpawnTimer
 
 var destinations: EnemyDestinations
 var spawn_queue: Array[EnemyBase]
@@ -16,6 +16,13 @@ var has_spawned_high_ranks: bool = false
 var max_pattern_spammer_on_play: int = 2
 var max_shotguneers_on_play: int = 10
 var max_markmen_on_play: int = 15
+
+func reset_spawner():
+	spawn_queue.clear()
+	has_spawned_high_ranks = false
+	has_spawned_leaders = false
+	next_wave_timer.stop()
+	spawn_timer.stop()
 
 func deploy_next_squad():
 	var spammer_count: int = EnemyPool.unpooled_enemies[EnemyPool.enemy_types.PATTERNSPAMMER].size()

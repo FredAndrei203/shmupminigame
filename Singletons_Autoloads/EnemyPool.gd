@@ -48,6 +48,12 @@ static func return_enemy(used_enemy: EnemyBase):
 	unpooled.erase(used_enemy)
 	deactivate_enemy(used_enemy)
 
+static func despawn_everything():
+	for type in enemy_scenes.keys():
+		var unpooled: Array[EnemyBase] = unpooled_enemies[type]
+		while !unpooled.is_empty():
+			return_enemy(unpooled.pop_back())
+
 static func activate_enemy(enemy: EnemyBase):
 	enemy.set_process(true)
 	enemy.set_physics_process(true)
@@ -60,15 +66,18 @@ static func activate_enemy(enemy: EnemyBase):
 	enemy.is_destroyed = false
 	enemy.is_attacking = false
 	enemy.fire_count = enemy.max_fire_count
+	
 
 static func deactivate_enemy(enemy: EnemyBase):
 	enemy.set_process(false)
 	enemy.set_physics_process(false)
 	enemy.visible = false
-	enemy.hurtbox.hurtbox_active = false
-	enemy.animation_active = false
 	enemy.position = Vector2.ZERO
-	enemy.preparation_timer.stop()
-	enemy.weapon.weapon_activated = false
-	enemy.hitbox_active = false
 	enemy.fire_count = 0
+	
+	if enemy.is_inside_tree():
+		enemy.hurtbox.hurtbox_active = false
+		enemy.animation_active = false
+		enemy.preparation_timer.stop()
+		enemy.weapon.weapon_activated = false
+		enemy.hitbox_active = false

@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://crfvrgxrj388g"]
+[gd_scene load_steps=4 format=3 uid="uid://crfvrgxrj388g"]
 
 [ext_resource type="Script" uid="uid://b1e5jcixo3375" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dlyufwxer833x" path="res://game_scene.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dqq0h0qt6ojv" path="res://Singletons_Autoloads/play_button.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
 
 [node name="GameScene" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PlayButton" parent="CanvasLayer" instance=ExtResource("3_h2yge")]
+
+[connection signal="ready_for_next_game" from="GameScene" to="." method="_on_game_scene_ready_for_next_game"]
+[connection signal="start_the_game" from="CanvasLayer/PlayButton" to="." method="_on_play_button_start_the_game"]

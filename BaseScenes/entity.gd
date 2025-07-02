@@ -10,9 +10,9 @@ var animation_active: bool = true:
 	set(active):
 		animation_active = active
 		if active:
-			sprite.stop()
-		else:
 			sprite.play()
+		else:
+			sprite.stop()
 var hitbox_active: bool = true:
 	set(active):
 		hitbox_active = active

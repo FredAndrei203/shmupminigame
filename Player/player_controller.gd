@@ -32,9 +32,14 @@ func detect_if_firing():
 func translate_movement_input():
 	player.velocity = player.speed * player.movement_direction
 
-func _on_player_is_hit():
-	set_process(false)
-	player.set_physics_process(false)
-	player.set_process(false)
+func respawn_player() -> void:
+	player.position = Vector2(577, 486)
+	player.hitbox_active = true
+	player.show()
+
+func despawn_player() -> void:
 	player.hitbox_active = false
 	player.hide()
+
+func _on_player_is_hit():
+	despawn_player()

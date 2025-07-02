@@ -53,6 +53,12 @@ func return_bullet(used_bullet: BulletBase):
 	unpooled.erase(used_bullet)
 	deactivate_bullet(used_bullet)
 
+func despawn_everything():
+	for type in bullet_scenes.keys():
+		var unpooled: Array[BulletBase] = unpooled_bullets[type]
+		while !unpooled.is_empty():
+			return_bullet(unpooled.pop_back())
+
 func activate_bullet(bullet: BulletBase):
 	bullet.set_process(true)
 	bullet.set_physics_process(true)
