@@ -15,8 +15,7 @@ This project was created as a personal learning exercise to explore game develop
 
 ## 🎨 Assets
 
-All visual assets used in this project are from a free asset pack by **[Ravenmore](https://ravenmore.itch.io/)** on [itch.io](https://itch.io).  
-These assets are used under the terms of the free license provided by the author.  
+All visual assets used in this project are from a free asset pack by **[Ravenmore](https://ravenmore.itch.io/)** on [itch.io](https://itch.io). 
 
 
 
