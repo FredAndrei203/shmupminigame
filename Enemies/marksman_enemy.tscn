@@ -25,15 +25,14 @@ script = ExtResource("2_y55e8")
 shape = SubResource("RectangleShape2D_y55e8")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_gir5p")
 animation = &"NormalAnimation"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_05mtw")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_cbdeq")
 
 [node name="PreparationTimer" parent="." index="4"]

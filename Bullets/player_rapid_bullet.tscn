@@ -13,23 +13,24 @@ func _ready() -> void:
 	hurtbox.damage = 1
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xec86"]
-resource_local_to_scene = true
-size = Vector2(18, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4f1w"]
+radius = 9.05539
 
 [node name="PlayerRapidBullet" groups=["RapidFireBullet"] instance=ExtResource("1_fklk4")]
 script = SubResource("GDScript_i4f1w")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(-22, 0)
 sprite_frames = ExtResource("3_xec86")
 animation = &"BulletSprite"
+frame = 1
+frame_progress = 0.341652
+offset = Vector2(1.2, -0.9)
 
 [node name="HurtboxComponent" parent="." index="2"]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
-shape = SubResource("RectangleShape2D_xec86")
+shape = SubResource("CircleShape2D_i4f1w")
 
 [editable path="HurtboxComponent"]

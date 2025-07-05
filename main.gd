@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	EnemyPool.initialize_arrays_of_pools()
+	play_button.game_info = game_scene.game_info
 
 
 func _on_play_button_start_the_game() -> void:
@@ -12,4 +13,4 @@ func _on_play_button_start_the_game() -> void:
 
 
 func _on_game_scene_ready_for_next_game() -> void:
-	play_button.show()
+	play_button.update_and_show()

@@ -9,10 +9,11 @@ var player: Player:
 		player.is_hit.connect(_on_player_is_hit)
 
 func _process(_delta: float) -> void:
-	detect_direction_input()
-	detect_if_focusing()
-	detect_if_firing()
-	translate_movement_input()
+	if !player.is_dead:
+		detect_direction_input()
+		detect_if_focusing()
+		detect_if_firing()
+		translate_movement_input()
 
 func detect_direction_input():
 	var x_axis: float = Input.get_axis("left", "right")
@@ -35,10 +36,12 @@ func translate_movement_input():
 func respawn_player() -> void:
 	player.position = Vector2(577, 486)
 	player.hitbox_active = true
+	player.is_dead = false
 	player.show()
 
 func despawn_player() -> void:
 	player.hitbox_active = false
+	player.is_dead = true
 	player.hide()
 
 func _on_player_is_hit():

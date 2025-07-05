@@ -11,9 +11,10 @@ radius = 2.0
 script = ExtResource("2_enmy7")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("2_slg4p")
-frame = 6
-frame_progress = 0.367894
+frame_progress = 0.955021
+offset = Vector2(1, 0)
 
 [node name="HurtboxComponent" parent="." index="2"]
 collision_layer = 8

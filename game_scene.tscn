@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlyufwxer833x"]
+[gd_scene load_steps=10 format=3 uid="uid://dlyufwxer833x"]
 
 [ext_resource type="PackedScene" uid="uid://cxfxreysyekjn" path="res://Player/player.tscn" id="1_po0ka"]
 [ext_resource type="Script" uid="uid://1t7jxqdy5yls" path="res://game_scene.gd" id="1_v1wow"]
@@ -6,26 +6,48 @@
 [ext_resource type="PackedScene" uid="uid://d3oalbiucw4lq" path="res://StageElements/enemy_destinations.tscn" id="4_mixcd"]
 [ext_resource type="PackedScene" uid="uid://db0v346xv1qix" path="res://StageElements/enemy_spawner.tscn" id="5_mj2jn"]
 [ext_resource type="PackedScene" uid="uid://dm777847bygo4" path="res://Singletons_Autoloads/game_info.tscn" id="6_kdryc"]
+[ext_resource type="Texture2D" uid="uid://dacat0og8oyv2" path="res://Assets/PixelSpaceRage_2018.2/PixelSpaceRage/PixelBackgroundSeamlessVertically.png" id="7_6e45b"]
+[ext_resource type="Shader" uid="uid://cyf4wvrrneva5" path="res://scroll.gdshader" id="7_e35lh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udeyl"]
+resource_local_to_scene = true
+shader = ExtResource("7_e35lh")
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_v1wow")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_mj2jn")]
-
-[node name="Player" parent="." instance=ExtResource("1_po0ka")]
-position = Vector2(577, 486)
-collision_layer = 1
-
-[node name="PlayerController" parent="." instance=ExtResource("2_v1wow")]
-
-[node name="EnemyDestinations" parent="." instance=ExtResource("4_mixcd")]
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_udeyl")
+anchors_preset = -1
+anchor_right = 0.318
+anchor_bottom = 0.34
+offset_top = -659.429
+offset_right = 1154.0
+offset_bottom = 857.778
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_6e45b")
+expand_mode = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameInfo" parent="CanvasLayer" instance=ExtResource("6_kdryc")]
 process_mode = 3
 
-[connection signal="is_hit" from="Player" to="." method="_on_player_is_hit"]
-[connection signal="is_hit" from="Player" to="PlayerController" method="_on_player_is_hit"]
+[node name="Player" parent="." instance=ExtResource("1_po0ka")]
+position = Vector2(577, 486)
+collision_layer = 1
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_mj2jn")]
+
+[node name="PlayerController" parent="." instance=ExtResource("2_v1wow")]
+
+[node name="EnemyDestinations" parent="." instance=ExtResource("4_mixcd")]
+
 [connection signal="game_finished" from="CanvasLayer/GameInfo" to="." method="_on_game_info_game_finished"]
 [connection signal="game_starts" from="CanvasLayer/GameInfo" to="." method="_on_game_info_game_starts"]
+[connection signal="is_hit" from="Player" to="." method="_on_player_is_hit"]
+[connection signal="is_hit" from="Player" to="PlayerController" method="_on_player_is_hit"]
+[connection signal="increase_score" from="EnemySpawner" to="CanvasLayer/GameInfo" method="_on_enemy_spawner_increase_score"]

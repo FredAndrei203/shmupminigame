@@ -1,6 +1,8 @@
 class_name EnemySpawner
 extends Node2D
 
+signal increase_score(victim: EnemyBase)
+
 @onready var spawn_area = $SpawnAreas
 @onready var spawn_point = $SpawnAreas/SpawnPoint
 @onready var next_wave_timer: Timer = $NextWaveTimer
@@ -21,6 +23,13 @@ func reset_spawner():
 	spawn_queue.clear()
 	has_spawned_high_ranks = false
 	has_spawned_leaders = false
+	next_wave_timer.stop()
+	spawn_timer.stop()
+
+func activate_spawner():
+	next_wave_timer.start()
+
+func deactivate_spawner():
 	next_wave_timer.stop()
 	spawn_timer.stop()
 
@@ -74,6 +83,7 @@ func _on_spawn_timer_timeout() -> void:
 		
 		if !children.has(enemy):
 			enemy.request_next_destination.connect(_on_enemy_base_request_next_destination)
+			enemy.died.connect(_on_enemy_base_died)
 			enemy.target = target_of_malice
 			add_child(enemy)
 			children.append(enemy)
@@ -89,3 +99,6 @@ func _on_enemy_base_request_next_destination(enemy: EnemyBase):
 func get_children_of_type(type: EnemyPool.enemy_types) -> Array:
 	var group_str: StringName = EnemyPool.group_of_enemy_type[type]
 	return get_tree().get_nodes_in_group(group_str)
+
+func _on_enemy_base_died(victim: EnemyBase) -> void:
+	increase_score.emit(victim)

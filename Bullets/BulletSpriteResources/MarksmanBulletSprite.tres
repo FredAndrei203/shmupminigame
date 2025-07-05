@@ -1,122 +1,17 @@
-[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://dtkyy3u8hrekd"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dtkyy3u8hrekd"]
 
-[ext_resource type="Texture2D" uid="uid://bjjgdi5101t2f" path="res://Assets/PC Computer - Touhou Chireiden Subterranean Animism - Bullets.png" id="1_50nyt"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_be1c4"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(5, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2retb"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(13, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3bibo"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(21, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ax3l2"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(29, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1as7h"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(37, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cyipr"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(45, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3n486"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(53, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lb0t1"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(61, 246, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hah7q"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(5, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8hdwo"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(13, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjfuf"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(21, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b84uv"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(29, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6eokl"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(37, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujh7d"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(45, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uc7tt"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(53, 254, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpbcd"]
-atlas = ExtResource("1_50nyt")
-region = Rect2(61, 254, 8, 8)
+[ext_resource type="Texture2D" uid="uid://pteeqye2b3d7" path="res://Assets/PixelSpaceRage_2018.2/PixelSpaceRage/256px/Explosion01_Frame_05_png_processed.png" id="1_be1c4"]
+[ext_resource type="Texture2D" uid="uid://bwxuvc4213xow" path="res://Assets/PixelSpaceRage_2018.2/PixelSpaceRage/256px/Explosion02_Frame_05_png_processed.png" id="2_2retb"]
 
 [resource]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_be1c4")
+"texture": ExtResource("1_be1c4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2retb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3bibo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ax3l2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1as7h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cyipr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3n486")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lb0t1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hah7q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8hdwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bjfuf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b84uv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6eokl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujh7d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uc7tt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpbcd")
+"texture": ExtResource("2_2retb")
 }],
 "loop": true,
 "name": &"default",

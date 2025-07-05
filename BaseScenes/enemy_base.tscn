@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8yopd2yw36hr"]
 
 [ext_resource type="PackedScene" uid="uid://cscfvrd2y3rxs" path="res://BaseScenes/entity.tscn" id="1_v27bd"]
-[ext_resource type="Script" uid="uid://ddyhrpx2dqewh" path="res://enemy_base.gd" id="2_muci8"]
+[ext_resource type="Script" uid="uid://ddyhrpx2dqewh" path="res://BaseScenes/enemy_base.gd" id="2_muci8"]
 [ext_resource type="Script" uid="uid://de6dxlvawq6wp" path="res://BaseScenes/EnemyBaseSprite.gd" id="3_dfsip"]
 [ext_resource type="SpriteFrames" uid="uid://wuip3fpgcl8a" path="res://Enemies/enemybase.tres" id="3_gxut8"]
 [ext_resource type="PackedScene" uid="uid://cvcivttydua41" path="res://Components/hurtbox_component.tscn" id="3_muci8"]

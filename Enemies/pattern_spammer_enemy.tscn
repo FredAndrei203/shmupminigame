@@ -9,12 +9,12 @@
 resource_local_to_scene = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ncaqh"]
-radius = 12.0
-height = 28.0
+radius = 7.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71va6"]
-radius = 12.0
-height = 28.0
+radius = 7.0
+height = 46.0
 
 [node name="PatternSpammerEnemy" groups=["PatternSpammer"] instance=ExtResource("1_bcsy2")]
 script = ExtResource("2_71va6")
@@ -27,11 +27,11 @@ sprite_frames = ExtResource("2_ncaqh")
 animation = &"NormalAnimation"
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0, -1)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_ncaqh")
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(0, -1)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_71va6")
 
 [node name="PatternSpammerWeapon" parent="." index="5" instance=ExtResource("4_8acbr")]

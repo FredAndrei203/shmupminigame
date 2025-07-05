@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cxfxreysyekjn"]
 
 [ext_resource type="PackedScene" uid="uid://cscfvrd2y3rxs" path="res://BaseScenes/entity.tscn" id="1_l8h54"]
-[ext_resource type="Script" uid="uid://p7w8rj35ht" path="res://player.gd" id="2_4ntmi"]
-[ext_resource type="SpriteFrames" uid="uid://dc5vdsrpni72t" path="res://Player/Reimu.tres" id="3_btcbx"]
-[ext_resource type="Script" uid="uid://4mbejlimb6xr" path="res://Player/player_sprite.gd" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://p7w8rj35ht" path="res://Player/player.gd" id="2_4ntmi"]
+[ext_resource type="SpriteFrames" uid="uid://bp72at5jnwba5" path="res://Player/playeranim.tres" id="3_vtle1"]
+[ext_resource type="Script" uid="uid://de6dxlvawq6wp" path="res://BaseScenes/EnemyBaseSprite.gd" id="4_vtle1"]
 [ext_resource type="PackedScene" uid="uid://cs67qsyl0n2a0" path="res://Weapons/rapid_fire_weapon.tscn" id="5_k53q1"]
-[ext_resource type="Texture2D" uid="uid://bjjgdi5101t2f" path="res://Assets/PC Computer - Touhou Chireiden Subterranean Animism - Bullets.png" id="6_vtle1"]
+[ext_resource type="Texture2D" uid="uid://c6f2injwqij5r" path="res://Assets/PixelSpaceRage_2018.2/PixelSpaceRage/128px/Cover_Blue_png_processed.png" id="6_vtle1"]
 [ext_resource type="Script" uid="uid://c5vepvjek8wbt" path="res://Player/hitbox_sprite.gd" id="7_od3ui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k53q1"]
@@ -22,17 +22,17 @@ script = ExtResource("2_4ntmi")
 shape = SubResource("CircleShape2D_k53q1")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-sprite_frames = ExtResource("3_btcbx")
-animation = &"NormalAnimation"
-script = ExtResource("4_k53q1")
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("3_vtle1")
+animation = &"MovingLaterally"
+script = ExtResource("4_vtle1")
 
 [node name="RapidFireWeapon" parent="." index="2" instance=ExtResource("5_k53q1")]
 
 [node name="HitboxSprite" type="Sprite2D" parent="." index="3"]
-visible = false
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_vtle1")
-region_enabled = true
-region_rect = Rect2(276, 25, 64, 60)
+offset = Vector2(1, -1)
 script = ExtResource("7_od3ui")
 
 [node name="Hitbox" parent="." index="4"]

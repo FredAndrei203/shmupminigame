@@ -79,7 +79,8 @@ func fire_weapon():
 func focus_shots(delta: float):
 	for idx in range(muzzles.size()):
 		var pos: Vector2 = focused_muzzle_positions[idx]
-		var rot: float = focused_muzzle_orientations[idx]
+		#var rot: float = focused_muzzle_orientations[idx]
+		var rot: float = 0
 		muzzles[idx].position = muzzles[idx].position.move_toward(pos, delta)
 		muzzles[idx].rotation = move_toward(muzzles[idx].rotation, rot, delta)
 

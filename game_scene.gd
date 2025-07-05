@@ -15,27 +15,27 @@ func _ready() -> void:
 	player_controller.player = player
 	enemy_spawner.destinations = enemy_destinations
 	enemy_spawner.target_of_malice = player
-	get_tree().paused = true
+	enemy_spawner.deactivate_spawner()
+	player_controller.despawn_player()
 
 func new_round():
 	reset_play_area()
 	game_info.start_new_round()
 
 func reset_play_area():
-	BulletPool.despawn_everything()
-	EnemyPool.despawn_everything()
 	player_controller.respawn_player()
-	enemy_spawner.reset_spawner()
 
 func _on_player_is_hit() -> void:
-	get_tree().paused = true
 	game_info.game_ended()
 
 
 func _on_game_info_game_starts() -> void:
-	get_tree().paused = false
-	enemy_spawner.next_wave_timer.start()
+	enemy_spawner.activate_spawner()
 
 
 func _on_game_info_game_finished() -> void:
+	EnemyPool.despawn_everything()
+	BulletPool.despawn_everything()
+	enemy_spawner.reset_spawner()
+	enemy_spawner.deactivate_spawner()
 	ready_for_next_game.emit()
